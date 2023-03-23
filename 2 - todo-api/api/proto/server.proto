@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package tasks;
+
+option go_package = "gochallenges/api/proto";
+
+import "google/protobuf/empty.proto";
+import "request.proto";
+import "response.proto";
+import "google/api/annotations.proto";
+
+service TasksService {
+    rpc GetTasks(GetTasksRequest) returns (GetTasksResponse) {
+        option (google.api.http) = {
+            get: "/tasks"
+        };
+    }
+    rpc GetTaskById(GetTasksByIdRequest) returns (GetTasksByIdResponse) {
+        option (google.api.http) = {
+            get: "/tasks/{id}"
+        };
+    }
+    rpc CreateTask(CreateTaskRequest) returns (CreateTaskResponse) {
+        option (google.api.http) = {
+            post: "/tasks"
+            body: "task"
+        };
+    }
+    rpc UpdateTask(UpdateTaskRequest) returns (UpdateTaskResponse) {
+        option (google.api.http) = {
+            put: "/tasks/{id}"
+            body: "task"
+        };
+    }
+    rpc DeleteTask(DeleteTaskRequest) returns (google.protobuf.Empty) {
+        option (google.api.http) = {
+            delete: "/tasks/{id}"
+        };
+    }
+}

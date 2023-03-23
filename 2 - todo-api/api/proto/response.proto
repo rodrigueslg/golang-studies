@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package tasks;
+
+option go_package = "gochallenges/api/proto";
+
+import "request.proto";
+
+message GetTasksResponse {
+    repeated Task tasks = 1;
+}
+
+message GetTasksByIdResponse {
+    Task task = 1;
+}
+
+message CreateTaskResponse {
+    Task task = 1;
+}
+
+message UpdateTaskResponse {
+    Task task = 1;
+}

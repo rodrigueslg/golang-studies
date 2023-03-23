@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:8.0.31
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'go-challenges'
+      MYSQL_USER: 'encora'
+      MYSQL_PASSWORD: 'encora'
+      MYSQL_ROOT_PASSWORD: 'encora'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - my-db:/var/lib/mysql
+volumes:
+  my-db:

@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package tasks;
+
+option go_package = "gochallenges/api/proto";
+
+message Task {
+    int32  id        = 1;
+    string name      = 2;
+    bool   completed = 3;
+}
+
+message GetTasksRequest {
+    optional bool completed = 1;
+}
+
+message GetTasksByIdRequest {
+    int32 id = 1;
+}
+
+message CreateTaskRequest {
+    Task task = 1;
+}
+
+message UpdateTaskRequest {
+    int32 id = 1;
+    Task task = 2;
+}
+
+message DeleteTaskRequest {
+    int32 id = 1;
+}

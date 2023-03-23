@@ -1,0 +1,35 @@
+GET http://localhost:5000/tasks HTTP/1.1
+Authorization: Bearer golangBearerToken
+
+###
+
+GET http://localhost:5000/tasks/5 HTTP/1.1
+Authorization: Bearer golangBearerToken
+
+###
+
+GET http://localhost:5000/tasks?completed=false HTTP/1.1
+Authorization: Bearer golangBearerToken
+
+###
+
+POST http://localhost:5000/tasks/ HTTP/1.1
+Authorization: Bearer golangBearerToken
+Content-Type: application/json
+
+{
+    "id": 10,
+    "name": "new task",
+    "completed": false
+}
+
+###
+
+curl --location --request POST 'localhost:5000/tasks' \
+--header 'Authorization: Bearer golangBearerToken' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": 10,
+    "name": "new task",
+    "completed": false
+}'
